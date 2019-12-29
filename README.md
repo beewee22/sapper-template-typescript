@@ -1,27 +1,22 @@
-# sapper-template
+## Please check out the [Sapper Instroduction](https://sapper.svelte.dev/docs/) first.   
+### This template is referenced to the following repositories.   
+- [Ariel Weingarten`s Gist](https://gist.github.com/eh-dub/4bf3b9137f0cd10780b6383c855d7ad1)
+- [hmmhmmhm's svelte-spa-template](https://github.com/hmmhmmhm/svelte-spa-template)
 
-The default [Sapper](https://github.com/sveltejs/sapper) template, available for Rollup and webpack.
+# sapper-template-typescript
+
+The [Sapper](https://github.com/sveltejs/sapper) template works with Typescript, available for Rollup and webpack.
 
 
 ## Getting started
 
-
 ### Using `degit`
 
-[`degit`](https://github.com/Rich-Harris/degit) is a scaffolding tool that lets you create a directory from a branch in a repository. Use either the `rollup` or `webpack` branch in `sapper-template`:
+[`degit`](https://github.com/Rich-Harris/degit) is a scaffolding tool that lets you create a directory from a branch in a repository. 
 
 ```bash
-# for Rollup
-npx degit "sveltejs/sapper-template#rollup" my-app
-# for webpack
-npx degit "sveltejs/sapper-template#webpack" my-app
+npx degit "beewee22/sapper-template-typescript" my-app
 ```
-
-
-### Using GitHub templates
-
-Alternatively, you can use GitHub's template feature with the [sapper-template-rollup](https://github.com/sveltejs/sapper-template-rollup) or [sapper-template-webpack](https://github.com/sveltejs/sapper-template-webpack) repositories.
-
 
 ### Running the project
 
@@ -45,7 +40,7 @@ Sapper expects to find two directories in the root of your project —  `src` an
 
 ### src
 
-The [src](src) directory contains the entry points for your app — `client.js`, `server.js` and (optionally) a `service-worker.js` — along with a `template.html` file and a `routes` directory.
+The [src](src) directory contains the entry points for your app — `client.ts`, `server.ts` and (optionally) a `service-worker.js` — along with a `template.html` file and a `routes` directory.
 
 
 #### src/routes
@@ -54,13 +49,21 @@ This is the heart of your Sapper app. There are two kinds of routes — *pages*,
 
 **Pages** are Svelte components written in `.svelte` files. When a user first visits the application, they will be served a server-rendered version of the route in question, plus some JavaScript that 'hydrates' the page and initialises a client-side router. From that point forward, navigating to other pages is handled entirely on the client for a fast, app-like feel. (Sapper will preload and cache the code for these subsequent pages, so that navigation is instantaneous.)
 
+**Use Typescript in .svelte component** is easy! Just add `lang="typescript"` attribute in `<script>`tag  
+```typescript
+<script lang="typescript">
+/// You can use typescript in here!
+let myStatus: string = "It works!";
+</script>
+```
+
 **Server routes** are modules written in `.js` files, that export functions corresponding to HTTP methods. Each function receives Express `request` and `response` objects as arguments, plus a `next` function. This is useful for creating a JSON API, for example.
 
 There are three simple rules for naming the files that define your routes:
 
 * A file called `src/routes/about.svelte` corresponds to the `/about` route. A file called `src/routes/blog/[slug].svelte` corresponds to the `/blog/:slug` route, in which case `params.slug` is available to the route
-* The file `src/routes/index.svelte` (or `src/routes/index.js`) corresponds to the root of your app. `src/routes/about/index.svelte` is treated the same as `src/routes/about.svelte`.
-* Files and directories with a leading underscore do *not* create routes. This allows you to colocate helper modules and components with the routes that depend on them — for example you could have a file called `src/routes/_helpers/datetime.js` and it would *not* create a `/_helpers/datetime` route
+* The file `src/routes/index.svelte` (or `src/routes/index.ts`) corresponds to the root of your app. `src/routes/about/index.svelte` is treated the same as `src/routes/about.svelte`.
+* Files and directories with a leading underscore do *not* create routes. This allows you to colocate helper modules and components with the routes that depend on them — for example you could have a file called `src/routes/_helpers/datetime.ts` and it would *not* create a `/_helpers/datetime` route
 
 
 ### static
