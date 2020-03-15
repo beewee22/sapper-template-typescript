@@ -1,5 +1,5 @@
 ## Please check out the [Sapper Instroduction](https://sapper.svelte.dev/docs/) first.   
-### This template is referenced to the following repositories.   
+### This template is reference the following repositories.   
 - [Ariel Weingarten`s Gist](https://gist.github.com/eh-dub/4bf3b9137f0cd10780b6383c855d7ad1)
 - [hmmhmmhm's svelte-spa-template](https://github.com/hmmhmmhm/svelte-spa-template)
 
